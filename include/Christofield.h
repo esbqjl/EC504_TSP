@@ -1,4 +1,5 @@
 #include "Kruskal.h"
+#include <bits/stdc++.h>
 #include <algorithm>
 #include <cmath>
 #include <cstdlib>
@@ -13,30 +14,32 @@
 #include <stdio.h>
 #include <vector>
 #include <limits>
+#include <set>
 using namespace std;
 #ifndef CHRISTOFIELD_H
 #define CHRISTOFIELD_H
 #define edge pair<int, int>
+
 class Christofield {
-    private:
+    public:
         vector <int> paths;
-        vector<pair<int, edge>> G;
-        vector<pair<int, edge>> T;
-        vector<pair<int, edge>> result;
+        vector<pair<double, edge>> G;
+        vector<pair<double, edge>> T;
+        vector<pair<double, edge>> result;
         //map<int,int> edgeNum;
         map<int, stack<int>> adjList; //first int is parent node, second int is child node, third node is weight
-    protected:
-    public:
+    
+    
         int n;
         int V;
+        double* O_G;
+        Christofield(double *distance_sq_matrix,int N);
         
-        Christofield(double *distance_sq_matrix);
-        ~Christofield();
         //void findOdds();
         //void bestmatching();
-        
+        void print();
         void findEulerGraph();
         void makeHamiltonian();
-}
+};
 
 #endif
