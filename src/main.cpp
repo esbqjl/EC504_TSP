@@ -20,53 +20,9 @@ typedef struct Node
 
 } Node;
 
-int NUM_CITIES=8246;
-int completed[8246];
-int cost = 0;
-//int NUM_CITIES;
+
+int NUM_CITIES;
 double* distance_sq_matrix;
-
-int least(int c, double* distance_sq_matrix) {
-    int i, nc = 99999;
-    int min = 9999999, kmin;
-
-    int n=NUM_CITIES;
-    for (i = 0; i < n; i++) {
-        if ((distance_sq_matrix[c*NUM_CITIES+i] != 0) && (completed[i] == 0))
-            if (distance_sq_matrix[c*NUM_CITIES+i] + distance_sq_matrix[i*NUM_CITIES+c] < min) {
-                min = distance_sq_matrix[i*NUM_CITIES+0] + distance_sq_matrix[c*NUM_CITIES+i];
-                kmin = distance_sq_matrix[c*NUM_CITIES+i];
-                nc = i;
-            }
-    }
-
-    if (min != 9999999)
-        cost += kmin;
-
-    return nc;
-}
-
-void mincost(int city,double* distance_sq_matrix) {
-    int i, ncity;
-
-    completed[city] = 1;
-
-    printf("%d--->", city + 1);
-
-    ncity = least(city,distance_sq_matrix);
-
-    if (ncity == 99999) {
-        ncity = 0;
-        printf("%d", ncity + 1);
-        cost += sqrt(distance_sq_matrix[city*NUM_CITIES+ncity]);
-
-        return;
-    }
-
-    mincost(ncity,distance_sq_matrix);
-}
-
-
 
 
 int main(int argc, char* argv[])
@@ -144,13 +100,6 @@ int main(int argc, char* argv[])
         cout << endl;
     }
 
-    int i;
-    for(i = 0 ; i < NUM_CITIES; i++){
-        completed[i] = 0;
-    }
-    mincost(0,distance_sq_matrix);
-    printf("\nThe cost is:\n");
-    printf("%d", cost);
     
     Christofield C(distance_sq_matrix, NUM_CITIES);
     C.findEulerGraph();
