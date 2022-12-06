@@ -19,10 +19,10 @@ def plotTSP(paths, points, num_iters=1):
         x.append(points[i][0])
         y.append(points[i][1])
 
-    plt.plot(x, y, 'co')
+    plt.scatter(x,y,1)
 
-    # Set a scale for the arrow heads (there should be a reasonable default for this, WTF?)
-    a_scale = float(max(x)) / float(100)
+    # Set a scale for the arrow heads (there should be a reasonable default for this)
+    a_scale = float(max(x)) / float(100000)
 
     # Draw the older paths, if provided
     if num_iters > 1:
@@ -52,8 +52,8 @@ def plotTSP(paths, points, num_iters=1):
                   color='g', length_includes_head=True)
 
     # Set axis too slitghtly larger than the set of x and y
-    plt.xlim(min(x) * 0.9, max(x) * 1.1)
-    plt.ylim(min(y) * 0.9, max(y) * 1.1)
+    plt.xlim(min(x) -100, max(x) +100)
+    plt.ylim(min(y) -100, max(y) +100)
     plt.show()
 
 
@@ -68,6 +68,8 @@ if __name__ == '__main__':
         resulttoken_id = []
         for x in linestoken:
             resulttoken_x.append(float(x.split()[tokens_column_number]))
+            # print(x)
+
         tokens_column_number += 1;
         for x in linestoken:
             resulttoken_y.append(float(x.split()[tokens_column_number]))

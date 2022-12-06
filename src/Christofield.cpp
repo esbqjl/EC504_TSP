@@ -90,10 +90,10 @@ void Christofield::makeHamiltonian(){
     paths.assign( s.begin(), s.end() );
    
     
-    
+    paths.push_back(paths[0]);
     for (int i=0;i<paths.size()-1;i++){
         
-        result.push_back(make_pair(O_G[paths[i]*V+ paths[i+1]],edge(paths[i]+1,paths[i+1]+1)));
+        result.push_back(make_pair(sqrt(O_G[paths[i]*V+ paths[i+1]]),edge(paths[i]+1,paths[i+1]+1)));
         paths[i]+=1;
     }
 }
@@ -104,7 +104,7 @@ void Christofield::print() {
   for (int i = 0; i < result.size(); i++) {
     cout << result[i].second.first << " - " << result[i].second.second << " : "
        << result[i].first;
-    total_weight+=sqrt(result[i].first);
+    total_weight+=(result[i].first);
     cout << endl;
   }
   cout<<"total: "<<total_weight<<endl;
