@@ -4,6 +4,9 @@
 #include <math.h>
 #include <iomanip>
 #include "../include/Christofield.h"
+
+#include<vector>
+#include "../include/LK_alo.h"
 #define START_ROW 7
 
 using std::cout;
@@ -23,6 +26,9 @@ typedef struct Node
 
 int NUM_CITIES;
 double* distance_sq_matrix;
+
+vector<int> id;
+vector<pair<double, double> > locate;
 
 
 int main(int argc, char* argv[])
@@ -72,6 +78,10 @@ int main(int argc, char* argv[])
     }
 
     infile.close();
+    for(int i=0;i<NUM_CITIES;i++){
+        id.push_back(node_list[i].id);
+        locate.push_back(make_pair(node_list[i].x,node_list[i].y));
+    }
 
     double* distance_sq_matrix = new double[NUM_CITIES * NUM_CITIES];
 
@@ -99,6 +109,9 @@ int main(int argc, char* argv[])
         }
         cout << endl;
     }
+    LK test(locate,id);
+    test.compareOptmize();
+    test.showTourIds();
 
     
     Christofield C(distance_sq_matrix, NUM_CITIES);
