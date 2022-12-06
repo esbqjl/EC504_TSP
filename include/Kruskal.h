@@ -3,6 +3,7 @@
 #include <vector>
 #include <map>
 #include <stack>
+#include <queue>
 using namespace std;
 #ifndef KRUSKAL_H
 #define KRUSKAL_H
@@ -12,8 +13,9 @@ class Graph {
   public:
       
       vector<pair<double, edge>> G;  // graph
-      map<int, stack<int>> adjList; // a basic node to nodes graph
-      //map<int,int> edgeNum;
+    
+      map<int, queue<int>> adjList; // a basic node to nodes graph
+      map<int,int> edgeNum;
       vector<pair<double, edge> > T;  // mst
       int *parent;
       int V;  // number of vertices/nodes in graph

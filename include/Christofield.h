@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <vector>
 #include <limits>
-#include <set>
+#include <queue>
 using namespace std;
 #ifndef CHRISTOFIELD_H
 #define CHRISTOFIELD_H
@@ -23,20 +23,20 @@ using namespace std;
 class Christofield {
     public:
         vector <int> paths;
-        vector<pair<double, edge>> G;
-        vector<pair<double, edge>> T;
         vector<pair<double, edge>> result;
-        //map<int,int> edgeNum;
-        map<int, stack<int>> adjList; //first int is parent node, second int is child node, third node is weight
-    
+        map<int,int> edgeNum;
+        //map<int, stack<int>> adjList; 
+        map<int,queue<int>>adjList;
+        double* adjmatrix;
+        vector<int> odds;
     
         int n;
         int V;
         double* O_G;
         Christofield(double *distance_sq_matrix,int N);
         
-        //void findOdds();
-        //void bestmatching();
+        void findOdds();
+        void bestmatching();
         void print();
         void findEulerGraph();
         void makeHamiltonian();

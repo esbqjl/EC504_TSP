@@ -3,7 +3,7 @@
 #include <fstream>
 #include <math.h>
 #include <iomanip>
-#include "../include/Christofield.h"
+#include "../include/ChristofieldDouble.h"
 #define START_ROW 7
 
 using std::cout;
@@ -148,17 +148,19 @@ int main(int argc, char* argv[])
     for(i = 0 ; i < NUM_CITIES; i++){
         completed[i] = 0;
     }
-    mincost(0,distance_sq_matrix);
-    printf("\nThe cost is:\n");
-    printf("%d", cost);
+    //mincost(0,distance_sq_matrix);
+    //printf("\nThe cost is:\n");
+    //printf("%d", cost);
     
     Christofield C(distance_sq_matrix, NUM_CITIES);
     C.findEulerGraph();
-    cout<<"we here!"<<endl;
     C.makeHamiltonian();
-    cout<<"we here!"<<endl;
     C.print();
-
+    ofstream myfile;
+    myfile.open ("result.tsp");
+    for (int i=0;i<C.paths.size()-1;i++)
+        myfile << C.paths[i]<<endl;
+    myfile.close();
     delete node_list;
     delete distance_sq_matrix;
 

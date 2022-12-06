@@ -36,15 +36,16 @@ void Graph::union_set(int u, int v) {
 void Graph::kruskal() {
   int i, uRep, vRep;
   sort(G.begin(), G.end());  // increasing weight
-  cout<<"Done"<<endl;
+  
   for (i = 0; i < G.size(); i++) {
     uRep = find_set(G[i].second.first);
     vRep = find_set(G[i].second.second);
     if (uRep != vRep) {
       T.push_back(G[i]);  // add to tree
       adjList[G[i].second.first].push(G[i].second.second);
-      //edgeNum[G[i].second.first]+=1;
-      //edgeNum[G[i].second.second]+=1;
+      adjList[G[i].second.second].push(G[i].second.first);
+      edgeNum[G[i].second.first]+=1;
+      edgeNum[G[i].second.second]+=1;
       union_set(uRep, vRep);
     }
   }
