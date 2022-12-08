@@ -103,13 +103,7 @@ int main(int argc, char* argv[])
         cout << endl;
     }
 
-    int i;
-    for(i = 0 ; i < NUM_CITIES; i++){
-        completed[i] = 0;
-    }
-    //mincost(0,distance_sq_matrix);
-    //printf("\nThe cost is:\n");
-    //printf("%d", cost);
+  
     
     Christofield C(distance_sq_matrix, NUM_CITIES);
     C.findEulerGraph();
