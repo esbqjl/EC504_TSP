@@ -5,6 +5,7 @@
 #include <iomanip>
 #include "../include/Christofield.h"
 #include "../include/dynamic_programming.h"
+#include "../include/LK_alo.h"
 #define START_ROW 7
 
 using std::cout;
@@ -24,6 +25,9 @@ typedef struct Node
 
 int NUM_CITIES;
 double* distance_sq_matrix;
+vector<int> id;
+vector<pair<double, double> > locate;
+
 
 
 
@@ -76,6 +80,7 @@ int main(int argc, char* argv[])
 
     infile.close();
 
+
     double* distance_sq_matrix = new double[NUM_CITIES * NUM_CITIES];
 
     for (int i = 0; i < NUM_CITIES; i++)
@@ -104,7 +109,7 @@ int main(int argc, char* argv[])
     }
 
   
-    
+
     Christofield C(distance_sq_matrix, NUM_CITIES);
     C.findEulerGraph();
     C.makeHamiltonian();
@@ -114,8 +119,8 @@ int main(int argc, char* argv[])
     for (int i=0;i<C.paths.size()-1;i++)
         myfile << C.paths[i]<<endl;
     myfile.close();
-    
-    
+
+
     vector < vector<float> > c;
     for (int i = 0; i != NUM_CITIES; ++i) {
         vector<float> tmp;
@@ -130,6 +135,15 @@ int main(int argc, char* argv[])
     }
 
     dp(c,NUM_CITIES);
+
+    for(int i=0;i<NUM_CITIES;i++){
+        id.push_back(node_list[i].id);
+        locate.push_back(make_pair(node_list[i].x,node_list[i].y));
+    }
+    LK test(locate,id);
+    test.compareOptmize();
+    test.showTourIds();
+
     
     
     delete node_list;

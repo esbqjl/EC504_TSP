@@ -1,7 +1,7 @@
 //
 // Created by Nelson Wang on 11/30/22.
 //
-#include "LK_alo.h"
+#include "../include/LK_alo.h"
 #include <vector>
 #include <cmath>
 #include <set>
@@ -12,6 +12,7 @@
 #include <sys/time.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <fstream>
 
 
 
@@ -235,11 +236,17 @@ void LK::showTour() {
 }
 
 void LK::showTourIds() {
+    ofstream LkOut;
+    cout<<"The Result is stored in LkResult.tsp"<<endl;
+    LkOut.open ("LkResult.tsp");
+
     int current = 0;
     do {
-        cout << id[current] << endl;
+        LkOut << id[current] << endl;
         current = tour[current];
     } while (current != 0);
+
+    LkOut.close();
 }
 
 
