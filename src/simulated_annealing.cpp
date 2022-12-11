@@ -22,8 +22,6 @@ using std::cout;
 using std::endl;
 using std::string;
 
-bool DEBUG_FLAG = false;
-
 void simulated_annealing(Path& path, double start_temp, double alpha, int num_steps, int num_attempts, int num_changes, int debug_freq, bool log_run, string log_file)
 {
     std::ofstream outfile;
