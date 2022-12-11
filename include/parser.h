@@ -2,9 +2,10 @@
 #define PARSER_H
 
 #include <string>
+#include "../include/Path.h"
 
 using std::string;
 
-void parse_file(string file_name, double* distances, int nodes);
+int file_parser(string file_to_read, int num_cities, Node* node_list, bool debug);
 
 #endif // PARSER_H
