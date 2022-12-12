@@ -124,21 +124,23 @@ int main(int argc, char* argv[])
 
     /* ALGORITHM 1: DYNAMIC PROGRAMMING */
 
+    if (NUM_CITIES <= 15) {
+        vector < vector<float> > c;
+        for (int i = 0; i != NUM_CITIES; ++i) {
+            vector<float> tmp;
+            for (int j = 0; j != NUM_CITIES; ++j) {
+                float dij_sq = (node_list[i].x - node_list[j].x) * (node_list[i].x - node_list[j].x) +
+                               (node_list[i].y - node_list[j].y) * (node_list[i].y - node_list[j].y);
 
-    vector < vector<float> > c;
-    for (int i = 0; i != NUM_CITIES; ++i) {
-        vector<float> tmp;
-        for (int j = 0; j != NUM_CITIES; ++j) {
-            float dij_sq = (node_list[i].x - node_list[j].x) * (node_list[i].x - node_list[j].x) +
-                            (node_list[i].y - node_list[j].y) * (node_list[i].y - node_list[j].y);
+                tmp.push_back(dij_sq);
+            }
 
-            tmp.push_back(dij_sq);
+            c.push_back(tmp);
         }
 
-        c.push_back(tmp);
+        dp(c,NUM_CITIES);
     }
 
-    dp(c,NUM_CITIES);
 
 
     // -------------------------------------------------------------------------
