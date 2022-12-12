@@ -65,56 +65,56 @@ int main(int argc, char* argv[])
         }
     }
 
-//    string full_file_path2(argv[2]);
-//    string file_name2 = full_file_path2.substr(full_file_path2.find_last_of("/") + 1, full_file_path2.back());
-//    string file_name_no_ext2 = file_name2.substr(0, file_name2.find_first_of("."));
-//    string file_path2 = full_file_path2.substr(0, full_file_path2.find_last_of("/") + 1);
-//
-//    cout << "file_path: " << file_path2 << endl;
-//    cout << "file name: " << file_name2 << endl;
-//
-//    string country_id2 = file_name2.substr(0, 2);
-//    int NUM_CITIES2 = std::stoi(file_name2.substr(2, file_name2.find(".")));
-//
-//    cout << "Country ID: " << country_id2 << ", Number of cities = " << NUM_CITIES2 << endl;
-//
-//    Node* node_list2 = new Node[NUM_CITIES2];
-//
-//
-//    double* distance_sq_matrix2 = new double[NUM_CITIES2 * NUM_CITIES2];
-//
-//    for (int i = 0; i < NUM_CITIES2; i++)
-//    {
-//        if (i % (NUM_CITIES2/10) == 0)
-//        {
-//            cout << "Computing distances for node " << i << endl;
-//        }
-//
-//        for (int j = i + 1; j < NUM_CITIES2; j++)
-//        {
-//            double dij_sq2 = (node_list2[i].x - node_list2[j].x) * (node_list2[i].x - node_list2[j].x) + (node_list2[i].y - node_list2[j].y) * (node_list2[i].y - node_list2[j].y);
-//            distance_sq_matrix2[NUM_CITIES2 * i + j] = dij_sq2;
-//            distance_sq_matrix2[NUM_CITIES2 * j + i] = dij_sq2;
-//        }
-//    }
+    string full_file_path2(argv[2]);
+    string file_name2 = full_file_path2.substr(full_file_path2.find_last_of("/") + 1, full_file_path2.back());
+    string file_name_no_ext2 = file_name2.substr(0, file_name2.find_first_of("."));
+    string file_path2 = full_file_path2.substr(0, full_file_path2.find_last_of("/") + 1);
+
+    cout << "file_path: " << file_path2 << endl;
+    cout << "file name: " << file_name2 << endl;
+
+    string country_id2 = file_name2.substr(0, 2);
+    int NUM_CITIES2 = std::stoi(file_name2.substr(2, file_name2.find(".")));
+
+    cout << "Country ID: " << country_id2 << ", Number of cities = " << NUM_CITIES2 << endl;
+
+    Node* node_list2 = new Node[NUM_CITIES2];
+
+
+    double* distance_sq_matrix2 = new double[NUM_CITIES2 * NUM_CITIES2];
+
+    for (int i = 0; i < NUM_CITIES2; i++)
+    {
+        if (i % (NUM_CITIES2/10) == 0)
+        {
+            cout << "Computing distances for node " << i << endl;
+        }
+
+        for (int j = i + 1; j < NUM_CITIES2; j++)
+        {
+            double dij_sq2 = (node_list2[i].x - node_list2[j].x) * (node_list2[i].x - node_list2[j].x) + (node_list2[i].y - node_list2[j].y) * (node_list2[i].y - node_list2[j].y);
+            distance_sq_matrix2[NUM_CITIES2 * i + j] = dij_sq2;
+            distance_sq_matrix2[NUM_CITIES2 * j + i] = dij_sq2;
+        }
+    }
 
     /* ALGORITHM 1: DYNAMIC PROGRAMMING */
 
 
-//    vector < vector<float> > c;
-//    for (int i = 0; i != NUM_CITIES2; ++i) {
-//        vector<float> tmp;
-//        for (int j = 0; j != NUM_CITIES2; ++j) {
-//            float dij_sq2 = (node_list2[i].x - node_list2[j].x) * (node_list2[i].x - node_list2[j].x) +
-//                           (node_list2[i].y - node_list2[j].y) * (node_list2[i].y - node_list2[j].y);
-//
-//            tmp.push_back(dij_sq2);
-//        }
-//
-//        c.push_back(tmp);
-//    }
-//
-//    dp(c,NUM_CITIES2);
+    vector < vector<float> > c;
+    for (int i = 0; i != NUM_CITIES2; ++i) {
+        vector<float> tmp;
+        for (int j = 0; j != NUM_CITIES2; ++j) {
+            float dij_sq2 = (node_list2[i].x - node_list2[j].x) * (node_list2[i].x - node_list2[j].x) +
+                           (node_list2[i].y - node_list2[j].y) * (node_list2[i].y - node_list2[j].y);
+
+            tmp.push_back(dij_sq2);
+        }
+
+        c.push_back(tmp);
+    }
+
+    dp(c,NUM_CITIES2);
 
 
     // -------------------------------------------------------------------------
@@ -174,21 +174,51 @@ int main(int argc, char* argv[])
     // -------------------------------------------------------------------------
 
     /* ALGORTIHM 4: kNN */
+    int* completed = new int[NUM_CITIES];
+    for(int i = 0 ; i < NUM_CITIES; i++){
+        completed[i] = 0;
+    }
+
+    std::ofstream outfile("result.txt");
+    int place = 0;
+    int count = 0;
+
+    outfile << node_list[place].id << endl;
+    completed[place] = 1;
+    count ++;
+    while(count < NUM_CITIES) {
+        double min = DBL_MAX;
+        int temp;
+        for (int i = 0; i < NUM_CITIES; i++) {
+            if (i != place && completed[i] == 0 && distance_sq_matrix[place * NUM_CITIES + i] < min) {
+                min = distance_sq_matrix[place * NUM_CITIES + i];
+                temp = i;
+            }
+        }
+        place = temp;
+        outfile << node_list[place].id << endl;
+        completed[place] = 1;
+        count ++;
+
+    }
+    outfile.close();
+
+    delete[] completed;
 
     // -------------------------------------------------------------------------
 
     /* ALGORITHM 5: CHRISTOFIDES */
   
     
-    Christofield C(distance_sq_matrix, NUM_CITIES);
-    C.findEulerGraph();
-    C.makeHamiltonian();
-    C.print();
-    ofstream myfile;
-    myfile.open ("result.tsp");
-    for (int i=0;i<C.paths.size()-1;i++)
-        myfile << C.paths[i]<<endl;
-    myfile.close();
+//    Christofield C(distance_sq_matrix, NUM_CITIES);
+//    C.findEulerGraph();
+//    C.makeHamiltonian();
+//    C.print();
+//    ofstream myfile;
+//    myfile.open ("result.tsp");
+//    for (int i=0;i<C.paths.size()-1;i++)
+//        myfile << C.paths[i]<<endl;
+//    myfile.close();
     
     // -------------------------------------------------------------------------
 
