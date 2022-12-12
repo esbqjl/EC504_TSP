@@ -5,8 +5,8 @@
 #include <stack>
 #include <queue>
 using namespace std;
-#ifndef KRUSKALDOUBLE_H
-#define KRUSKALDOUBLE_H
+#ifndef KRUSKAL_H
+#define KRUSKAL_H
 #define edge pair<int, int>
 
 class Graph {

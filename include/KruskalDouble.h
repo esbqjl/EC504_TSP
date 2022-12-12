@@ -4,8 +4,8 @@
 #include <map>
 #include <stack>
 using namespace std;
-#ifndef KRUSKAL_H
-#define KRUSKAL_H
+#ifndef KRUSKALDOUBLE_H
+#define KRUSKALDOUBLE_H
 #define edge pair<int, int>
 
 class Graph {
