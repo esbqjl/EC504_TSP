@@ -227,7 +227,15 @@ int main(int argc, char* argv[])
 //
 //    /* ALGORITHM 5: CHRISTOFIDES */
 //
-//
+    Christofield C(distance_sq_matrix, NUM_CITIES);
+    C.findEulerGraph();
+    C.makeHamiltonian();
+    C.print();
+    ofstream myfile;
+    myfile.open ("result.tsp");
+    for (int i=0;i<C.paths.size()-1;i++)
+        myfile << C.paths[i]<<endl;
+    myfile.close();
 
 
     // -------------------------------------------------------------------------
