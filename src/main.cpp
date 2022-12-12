@@ -20,13 +20,13 @@ int MAX_CITIES = 50000;
 vector<int> id;
 vector<pair<double, double> > locate;
 
-typedef struct Node
-{
-    int id;
-    double x;
-    double y;
-
-} Node;
+//typedef struct Node
+//{
+//    int id;
+//    double x;
+//    double y;
+//
+//} Node;
 
 
 int main(int argc, char* argv[])
@@ -118,7 +118,7 @@ int main(int argc, char* argv[])
         }
         cout << endl;
     }
-    
+
 
 
 
@@ -155,15 +155,7 @@ int main(int argc, char* argv[])
     int DEBUG_FREQ = 10;
     int NUM_EXPERIMENTS = 30;
 
-    // SIMULATED ANNEALING PARAMETERS - STRESS TEST PARAMETERS
-    // Run with these parameters is you want better results
-    double TMAX = 10*sqrt(NUM_CITIES);
-    double alpha = 0.95;
-    int STEPS = ceil(100 * log(NUM_CITIES));
-    int ATTEMPTS = 1000 * NUM_CITIES;
-    int CHANGES = 100 * NUM_CITIES;
-    int DEBUG_FREQ = 10;
-    int NUM_EXPERIMENTS = 30;
+
 
     string write_file = file_path + "/results/" + file_name_no_ext + "_tours.csv";
     string log_file = file_path + "/results/" + file_name_no_ext + "_log.csv";
