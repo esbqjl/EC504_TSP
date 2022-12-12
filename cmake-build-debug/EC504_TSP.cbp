@@ -82,6 +82,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+<<<<<<< Updated upstream
+=======
+		<Unit filename="/Users/nelsonwang/Documents/GitHub/EC504_TSP/include/Christofield.h">
+			<Option target="EC504_TSP"/>
+		</Unit>
+		<Unit filename="/Users/nelsonwang/Documents/GitHub/EC504_TSP/include/Kruskal.h">
+			<Option target="EC504_TSP"/>
+		</Unit>
+		<Unit filename="/Users/nelsonwang/Documents/GitHub/EC504_TSP/include/KruskalDouble.h">
+			<Option target="EC504_TSP"/>
+		</Unit>
+>>>>>>> Stashed changes
 		<Unit filename="/Users/nelsonwang/Documents/GitHub/EC504_TSP/include/LK_alo.h">
 			<Option target="EC504_TSP"/>
 		</Unit>
@@ -97,6 +109,15 @@
 		<Unit filename="/Users/nelsonwang/Documents/GitHub/EC504_TSP/include/simulated_annealing.h">
 			<Option target="EC504_TSP"/>
 		</Unit>
+<<<<<<< Updated upstream
+=======
+		<Unit filename="/Users/nelsonwang/Documents/GitHub/EC504_TSP/src/Christofield.cpp">
+			<Option target="EC504_TSP"/>
+		</Unit>
+		<Unit filename="/Users/nelsonwang/Documents/GitHub/EC504_TSP/src/Kruskal.cpp">
+			<Option target="EC504_TSP"/>
+		</Unit>
+>>>>>>> Stashed changes
 		<Unit filename="/Users/nelsonwang/Documents/GitHub/EC504_TSP/src/LK_alo.cpp">
 			<Option target="EC504_TSP"/>
 		</Unit>

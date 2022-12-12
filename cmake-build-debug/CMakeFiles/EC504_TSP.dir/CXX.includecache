@@ -102,6 +102,17 @@ string
 ../include/Path.h
 /Users/nelsonwang/Documents/GitHub/EC504_TSP/include/Path.h
 
+<<<<<<< Updated upstream
+=======
+/Users/nelsonwang/Documents/GitHub/EC504_TSP/src/Christofield.cpp
+../include/Christofield.h
+/Users/nelsonwang/Documents/GitHub/EC504_TSP/include/Christofield.h
+
+/Users/nelsonwang/Documents/GitHub/EC504_TSP/src/Kruskal.cpp
+../include/Kruskal.h
+/Users/nelsonwang/Documents/GitHub/EC504_TSP/include/Kruskal.h
+
+>>>>>>> Stashed changes
 /Users/nelsonwang/Documents/GitHub/EC504_TSP/src/main.cpp
 iostream
 -

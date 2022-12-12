@@ -93,12 +93,20 @@ clean: CMakeFiles/EC504_TSP.dir/clean
 CMakeFiles/EC504_TSP.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EC504_TSP.dir/build.make CMakeFiles/EC504_TSP.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EC504_TSP.dir/build.make CMakeFiles/EC504_TSP.dir/build
+<<<<<<< Updated upstream
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/nelsonwang/Documents/GitHub/EC504_TSP/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target EC504_TSP"
+=======
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/nelsonwang/Documents/GitHub/EC504_TSP/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target EC504_TSP"
+>>>>>>> Stashed changes
 .PHONY : CMakeFiles/EC504_TSP.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/EC504_TSP.dir/rule: cmake_check_build_system
+<<<<<<< Updated upstream
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nelsonwang/Documents/GitHub/EC504_TSP/cmake-build-debug/CMakeFiles 6
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nelsonwang/Documents/GitHub/EC504_TSP/cmake-build-debug/CMakeFiles 8
+>>>>>>> Stashed changes
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/EC504_TSP.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nelsonwang/Documents/GitHub/EC504_TSP/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/EC504_TSP.dir/rule

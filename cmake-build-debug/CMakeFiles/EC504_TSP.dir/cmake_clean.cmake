@@ -1,4 +1,9 @@
 file(REMOVE_RECURSE
+<<<<<<< Updated upstream
+=======
+  "CMakeFiles/EC504_TSP.dir/src/Christofield.cpp.o"
+  "CMakeFiles/EC504_TSP.dir/src/Kruskal.cpp.o"
+>>>>>>> Stashed changes
   "CMakeFiles/EC504_TSP.dir/src/LK_alo.cpp.o"
   "CMakeFiles/EC504_TSP.dir/src/Path.cpp.o"
   "CMakeFiles/EC504_TSP.dir/src/main.cpp.o"

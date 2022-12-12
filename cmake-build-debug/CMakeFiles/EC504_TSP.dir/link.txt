@@ -1,1 +1,5 @@
+<<<<<<< Updated upstream
 /Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/EC504_TSP.dir/src/LK_alo.cpp.o CMakeFiles/EC504_TSP.dir/src/main.cpp.o CMakeFiles/EC504_TSP.dir/src/parser.cpp.o CMakeFiles/EC504_TSP.dir/src/Path.cpp.o CMakeFiles/EC504_TSP.dir/src/simulated_annealing.cpp.o -o EC504_TSP 
+=======
+/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/EC504_TSP.dir/src/Christofield.cpp.o CMakeFiles/EC504_TSP.dir/src/Kruskal.cpp.o CMakeFiles/EC504_TSP.dir/src/LK_alo.cpp.o CMakeFiles/EC504_TSP.dir/src/main.cpp.o CMakeFiles/EC504_TSP.dir/src/parser.cpp.o CMakeFiles/EC504_TSP.dir/src/Path.cpp.o CMakeFiles/EC504_TSP.dir/src/simulated_annealing.cpp.o -o EC504_TSP 
+>>>>>>> Stashed changes

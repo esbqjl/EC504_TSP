@@ -142,6 +142,63 @@ EC504_TSP/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EC504_TSP.dir/build.make CMakeFiles/EC504_TSP.dir/build
 .PHONY : EC504_TSP/fast
 
+<<<<<<< Updated upstream
+=======
+src/Christofield.o: src/Christofield.cpp.o
+
+.PHONY : src/Christofield.o
+
+# target to build an object file
+src/Christofield.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EC504_TSP.dir/build.make CMakeFiles/EC504_TSP.dir/src/Christofield.cpp.o
+.PHONY : src/Christofield.cpp.o
+
+src/Christofield.i: src/Christofield.cpp.i
+
+.PHONY : src/Christofield.i
+
+# target to preprocess a source file
+src/Christofield.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EC504_TSP.dir/build.make CMakeFiles/EC504_TSP.dir/src/Christofield.cpp.i
+.PHONY : src/Christofield.cpp.i
+
+src/Christofield.s: src/Christofield.cpp.s
+
+.PHONY : src/Christofield.s
+
+# target to generate assembly for a file
+src/Christofield.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EC504_TSP.dir/build.make CMakeFiles/EC504_TSP.dir/src/Christofield.cpp.s
+.PHONY : src/Christofield.cpp.s
+
+src/Kruskal.o: src/Kruskal.cpp.o
+
+.PHONY : src/Kruskal.o
+
+# target to build an object file
+src/Kruskal.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EC504_TSP.dir/build.make CMakeFiles/EC504_TSP.dir/src/Kruskal.cpp.o
+.PHONY : src/Kruskal.cpp.o
+
+src/Kruskal.i: src/Kruskal.cpp.i
+
+.PHONY : src/Kruskal.i
+
+# target to preprocess a source file
+src/Kruskal.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EC504_TSP.dir/build.make CMakeFiles/EC504_TSP.dir/src/Kruskal.cpp.i
+.PHONY : src/Kruskal.cpp.i
+
+src/Kruskal.s: src/Kruskal.cpp.s
+
+.PHONY : src/Kruskal.s
+
+# target to generate assembly for a file
+src/Kruskal.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EC504_TSP.dir/build.make CMakeFiles/EC504_TSP.dir/src/Kruskal.cpp.s
+.PHONY : src/Kruskal.cpp.s
+
+>>>>>>> Stashed changes
 src/LK_alo.o: src/LK_alo.cpp.o
 
 .PHONY : src/LK_alo.o
@@ -286,6 +343,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... EC504_TSP"
+<<<<<<< Updated upstream
+=======
+	@echo "... src/Christofield.o"
+	@echo "... src/Christofield.i"
+	@echo "... src/Christofield.s"
+	@echo "... src/Kruskal.o"
+	@echo "... src/Kruskal.i"
+	@echo "... src/Kruskal.s"
+>>>>>>> Stashed changes
 	@echo "... src/LK_alo.o"
 	@echo "... src/LK_alo.i"
 	@echo "... src/LK_alo.s"

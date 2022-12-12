@@ -98,7 +98,10 @@ int main(int argc, char* argv[])
         }
     }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     /* ALGORITHM 1: DYNAMIC PROGRAMMING */
 
 
@@ -117,7 +120,10 @@ int main(int argc, char* argv[])
 
     dp(c,NUM_CITIES2);
 
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
 
     // -------------------------------------------------------------------------
 
@@ -181,6 +187,7 @@ int main(int argc, char* argv[])
 
     /* ALGORITHM 5: CHRISTOFIDES */
   
+<<<<<<< Updated upstream
     
 //    Christofield C(distance_sq_matrix, NUM_CITIES);
 //    C.findEulerGraph();
@@ -192,10 +199,24 @@ int main(int argc, char* argv[])
 //        myfile << C.paths[i]<<endl;
 //    myfile.close();
     
+=======
+
+    Christofield C(distance_sq_matrix, NUM_CITIES);
+    C.findEulerGraph();
+    C.makeHamiltonian();
+    C.print();
+    ofstream myfile;
+    myfile.open ("result.tsp");
+    for (int i=0;i<C.paths.size()-1;i++)
+        myfile << C.paths[i]<<endl;
+    myfile.close();
+
+>>>>>>> Stashed changes
     // -------------------------------------------------------------------------
 
     delete node_list;
     delete distance_sq_matrix;
+
 
     return 0;
     
