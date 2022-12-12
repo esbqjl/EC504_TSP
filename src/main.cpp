@@ -3,7 +3,7 @@
 #include <fstream>
 #include <math.h>
 #include <iomanip>
-//#include "../include/Christofield.h"
+#include "../include/Christofield.h"
 #include "../include/dynamic_programming.h"
 #include "../include/LK_alo.h"
 #include "../include/Path.h"

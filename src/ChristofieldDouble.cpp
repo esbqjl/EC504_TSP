@@ -58,12 +58,8 @@ void Christofield::findEulerGraph(){
     }
 }
 void Christofield::makeHamiltonian(){
-    unordered_set <int> s(paths.begin(),paths.end());
     
-    paths.assign( s.begin(), s.end() );
-    paths.push_back(paths[0]);
-    cout<<paths.size()<<endl;
-    cout<<"yeah"<<endl;
+    remove(paths);
     for (int i=0;i<paths.size()-1;i++){
         result.push_back(make_pair(sqrt(O_G[paths[i]*V+ paths[i+1]]),edge(paths[i]+1,paths[i+1]+1)));
         paths[i]+=1;
@@ -80,4 +76,13 @@ void Christofield::print() {
     cout << endl;
   }
   cout<<"total: "<<total_weight<<endl;
+}
+void Christofield::remove(std::vector<int> &v)
+{
+    auto end = v.end();
+    for (auto it = v.begin(); it != end; ++it) {
+        end = std::remove(it + 1, end, *it);
+    }
+ 
+    v.erase(end, v.end());
 }

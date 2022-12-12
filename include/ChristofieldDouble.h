@@ -1,5 +1,5 @@
 #include "KruskalDouble.h"
-#include <bits/stdc++.h>
+
 #include <algorithm>
 #include <cmath>
 #include <cstdlib>
@@ -34,7 +34,7 @@ class Christofield {
         int V;
         double* O_G;
         Christofield(double *distance_sq_matrix,int N);
-        
+        void remove(vector<int> &v);
         //void findOdds();
         //void bestmatching();
         void print();
