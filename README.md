@@ -4,6 +4,11 @@
 To compile the code, run:
 
 g++ ./src/*.cpp -o run -std=c++11
+For BU SCC if any errors out, try to run(it's same as above):
+g++ -std=gnu+11 ./src/*.cpp -o run    
+For some algorithm, please run multiple .cpp file
+For example: 
+g++ main.cpp Christofield.cpp Kruskal.cpp LK_alo.cpp Path.cpp simulated_annealing.cpp parser.cpp -o run -std=c++11
 
 To run the code, run:
 
