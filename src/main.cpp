@@ -154,30 +154,30 @@ int main(int argc, char* argv[])
     int CHANGES = 10 * NUM_CITIES;
     int DEBUG_FREQ = 10;
     int NUM_EXPERIMENTS = 30;
-
-
-
+//
+//
+//
     string write_file = file_path + "/results/" + file_name_no_ext + "_tours.csv";
     string log_file = file_path + "/results/" + file_name_no_ext + "_log.csv";
-
-    // Run NUM_EXPERIMENTS on the list of NUM_CITIES cities using the above parameters; write final path and run-time
-    // data to directory.  This might take a while... I recommend running on datasets no larger than the ei8246.tsp
-    // dataset...it also dumps a LOT of data into a CSV, I DO NOT RECOMMEND OPENING THE CSV, unless it is the wi29.tsp
-    // dataset.  MATLAB scripts have been provided for visualizing the results.
+//
+//    // Run NUM_EXPERIMENTS on the list of NUM_CITIES cities using the above parameters; write final path and run-time
+//    // data to directory.  This might take a while... I recommend running on datasets no larger than the ei8246.tsp
+//    // dataset...it also dumps a LOT of data into a CSV, I DO NOT RECOMMEND OPENING THE CSV, unless it is the wi29.tsp
+//    // dataset.  MATLAB scripts have been provided for visualizing the results.
     run_suite(node_list, NUM_CITIES, NUM_EXPERIMENTS, TMAX, alpha, STEPS, ATTEMPTS, CHANGES, DEBUG_FREQ, write_file);
 
     Path m_path(NUM_CITIES, node_list);
-
-    // This runs a single simulated annealing experiment on the list of NUM_CITIES cities using the above parameters;
-    // the path AT EACH ITERATION is written to a CSV file; I ALSO DO NOT RECOMMEND OPENING THE CSV.  MATLAB scripts
-    // have been provided for visualizing the results.
-    simulated_annealing(m_path, TMAX, alpha, STEPS, ATTEMPTS, CHANGES, DEBUG_FREQ, true, log_file);
-
-    // -------------------------------------------------------------------------
-
-    /* ALGORITHM 3: LIN-KERNIGHAN */
-
-
+//
+//    // This runs a single simulated annealing experiment on the list of NUM_CITIES cities using the above parameters;
+//    // the path AT EACH ITERATION is written to a CSV file; I ALSO DO NOT RECOMMEND OPENING THE CSV.  MATLAB scripts
+//    // have been provided for visualizing the results.
+//    simulated_annealing(m_path, TMAX, alpha, STEPS, ATTEMPTS, CHANGES, DEBUG_FREQ, true, log_file);
+//
+//    // -------------------------------------------------------------------------
+//
+//    /* ALGORITHM 3: LIN-KERNIGHAN */
+//
+//
     for(int i=0;i<NUM_CITIES;i++){
         id.push_back(node_list[i].id);
         locate.push_back(make_pair(node_list[i].x,node_list[i].y));
@@ -185,11 +185,11 @@ int main(int argc, char* argv[])
     LK test(locate,id);
     test.compareOptmize();
     test.showTourIds();
-
-
-    // -------------------------------------------------------------------------
-
-    /* ALGORTIHM 4: kNN */
+//
+//
+//    // -------------------------------------------------------------------------
+//
+//    /* ALGORTIHM 4: kNN */
     int* completed = new int[NUM_CITIES];
     for(int i = 0 ; i < NUM_CITIES; i++){
         completed[i] = 0;
@@ -220,21 +220,13 @@ int main(int argc, char* argv[])
     outfile.close();
 
     delete[] completed;
+//
+//    // -------------------------------------------------------------------------
+//
+//    /* ALGORITHM 5: CHRISTOFIDES */
+//
+//
 
-    // -------------------------------------------------------------------------
-
-    /* ALGORITHM 5: CHRISTOFIDES */
-
-
-    Christofield C(distance_sq_matrix, NUM_CITIES);
-    C.findEulerGraph();
-    C.makeHamiltonian();
-    C.print();
-    ofstream myfile;
-    myfile.open ("result.tsp");
-    for (int i=0;i<C.paths.size()-1;i++)
-        myfile << C.paths[i]<<endl;
-    myfile.close();
 
     // -------------------------------------------------------------------------
 
