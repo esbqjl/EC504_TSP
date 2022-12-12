@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
 
     /* ALGORITHM 5: CHRISTOFIDES */
   
-    /
+    
     Christofield C(distance_sq_matrix, NUM_CITIES);
     C.findEulerGraph();
     C.makeHamiltonian();
