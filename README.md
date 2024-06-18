@@ -13,7 +13,7 @@ For some algorithm, please run multiple .cpp file
 
 For example: 
 
-g++ main.cpp Christofield.cpp Kruskal.cpp LK_alo.cpp Path.cpp simulated_annealing.cpp parser.cpp -o run -std=c++11
+g++ main.cpp Christofide.cpp Kruskal.cpp LK_alo.cpp Path.cpp simulated_annealing.cpp parser.cpp -o run -std=c++11
 
 To run the code, run:
 
